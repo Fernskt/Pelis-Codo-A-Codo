@@ -84,7 +84,8 @@ a{
     transition: all .3s;
 }
 .movie-item:hover{
-    scale: 1.03;
+    scale: 1.10;
+    
     
 }
 
@@ -160,7 +161,7 @@ a{
 /*--------Detalles Películas-----------*/
 
 .detail-movie{
-    background-image: url(../img/kfp4.jpg);
+    background-image: url(../img/godzilla.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position:center;
@@ -185,6 +186,7 @@ a{
 .peli-img-mobile{
     display: none;
 }
+
 
 @media (max-width: 500px) {
     .peli-aside{
@@ -216,4 +218,36 @@ a{
 }
 .enfasis{
     color: var(--color-secundario);
+}
+
+.pelicula{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+.pelicula-video{
+    width: 80%;
+    border: solid 1px var(--color-secundario);
+    border-radius: 1rem;
+}
+
+.iframe{
+    padding: 1rem;
+    width: 100%;
+    height:auto;
+}
+@media (min-width: 640px) {
+    .iframe{
+        
+        max-width: 640px;
+        height:360px;
+    }
+    .pelicula-video{
+        width: 640px;
+    }
+
 }

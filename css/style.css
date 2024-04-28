@@ -9,14 +9,32 @@
 body {
     font-family: "Roboto", sans-serif;
     background: radial-gradient(circle, #46121f, #0c141c, #04080c);
+    color: white;
 }
 
 
 .bgRojo {
-    background: linear-gradient(to right, #270a11, #081420);
+    
+    
     margin: 0;
+    animation: header-movement both;
+    animation-timeline: scroll();
+    position: sticky;
+    top: 0;
+    animation-range: 50px 100px;
+   
    
 }
+.form-control{
+    background-color: #0c141c;
+}
+.navbar-toggler{
+   color: transparent;
+   border: transparent;
+}
+
+
+
 
 @media (max-width: 768px) {
     .links-ul{
@@ -38,17 +56,24 @@ body {
     list-style: none;
 }
 
+ul{
+    margin: 0;
+}
+
 .linksSinDecoration{
     text-decoration: none;
     color: white;
 }
 
+
+
 .linkAnimado:hover {
-    animation: rubberBand; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 2s; /* don't forget to set a duration! */
+    animation: rubberBand;
+    animation-duration: 2s; 
 }
 
 #banner{
+   
     background-image: url('../img/banner-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -84,7 +109,7 @@ a{
     transition: all .3s;
 }
 .movie-item:hover{
-    scale: 1.10;
+    scale: 1.07;
     
     
 }
@@ -161,6 +186,7 @@ a{
 /*--------Detalles Películas-----------*/
 
 .detail-movie{
+   
     background-image: url(../img/godzilla.webp);
     background-repeat: no-repeat;
     background-size: cover;
@@ -221,6 +247,7 @@ a{
 }
 
 .pelicula{
+   
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -233,6 +260,7 @@ a{
     width: 80%;
     border: solid 1px var(--color-secundario);
     border-radius: 1rem;
+    background-color: var(--color-primario);
 }
 
 .iframe{
@@ -250,4 +278,24 @@ a{
         width: 640px;
     }
 
+}
+
+@keyframes identifier {
+    
+}
+
+/*------ANIMACIONES-----------*/
+
+@keyframes header-movement {
+    from {
+        padding: 10px 0;
+        background-color: rgb(2, 6, 23);
+        border-bottom: 1px solid rgb(27, 23, 35);
+
+    }
+    to {
+        background: linear-gradient(to right, #390f19, #0b1d2da8);
+        backdrop-filter: blur(5px);
+        z-index: 99;
+    }
 }

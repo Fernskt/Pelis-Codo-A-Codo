@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const data = await response.json();
     const movies = data.results;
 
-    console.log(movies);
+    //console.log(movies);
 
     displayMovies(movies);
     

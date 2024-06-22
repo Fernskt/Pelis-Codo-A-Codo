@@ -12,7 +12,10 @@ body {
     color: white;
 }
 
+.bg-dark{
 
+    background-color: var(--color-primario) !important;
+}
 .bgRojo {
     
     
@@ -86,7 +89,7 @@ ul{
 
 
 #busqueda {
-    height: 300px;
+    
     text-align: center;
     padding: 1.5rem;
 }
@@ -158,7 +161,13 @@ a{
     padding:  2rem 10rem;
 }
 }
-
+.err{
+    color: #ff8181;
+    padding: .5rem;
+    border: solid 1px #ff8181;
+    border-radius: .3rem;
+    margin-top: .5rem;
+}
 
 #footer li {
     list-style: none;
@@ -268,6 +277,12 @@ a{
     width: 100%;
     height:auto;
 }
+
+.peliList{
+    color: #edb417;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
 @media (min-width: 640px) {
     .iframe{
         
@@ -298,4 +313,25 @@ a{
         backdrop-filter: blur(5px);
         z-index: 99;
     }
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Tamaño completo de la ventana */
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -66,16 +66,18 @@
     <!-- banner -->
     <section  >
         <div id="banner" class="d-flex flex-column justify-content-center align-items-center text-white">
-            <h1>Disfruta de películas y series en español latino, completas y gratuitas, en HD <br><br> Con la comodidad de CAC-Movies.</h1>
+            <h2>Descubre el Mundo del Cine: Información y Reseñas de Tus Películas Favoritas <br><br> Tu Guía Definitiva de Películas: Explora y Disfruta!</h2>
             
         </div>
     </section>
 
     <!-- buscador -->
-    <section id="busqueda" class="text-white d-flex flex-column justify-content-center align-items-center ">
-        <h1 class="mb-3">¿Qué quieres ver hoy?</h1>
-        <input type="text" name="pelicula" id=" pelicula" class="form-control w-50 rounded-4 text-white" placeholder="Buscar...">
-
+    <section class="text-white d-flex flex-column justify-content-center align-items-center ">
+        <h1 class="m-3">Buscar película</h1>
+        <form id="busqueda">
+            <input type="text" name="pelicula" id="pelicula" class="form-control rounded-4 mb-3" placeholder="Buscar...">
+            <input type="submit" value="Buscar" class="btn btn-warning">
+        </form>
     </section>
 
 
@@ -84,9 +86,8 @@
     <section id="tendencias" class="mb-5 d-flex justify-content-center">
         <div class="grid">
 
-            <div class="movie-item ">
+            <!-- <div class="movie-item ">
                 <a href="detail-movie.html">
-                    
                     <img src="img/3.webp" alt="" class="movie-item-img">
                     <div class="movie-item-detail">
                         <p class="movie-item-detail-title">Kung-fu Panda 4</p>
@@ -194,20 +195,23 @@
                         <p class="movie-item-detail-subtitle">2023 - ⭐6.7 </p>
                     </div>
                 </a>
-            </div>
+            </div> -->
         </div>
 
     </section>
 
     <!-- las más aclamadas -->
+    <div class="peliList">
+        
+    </div>
     <section>
 
     </section>
 
     <footer id="footer">
         
-        <p class="copyright">Copyright © 2024 - CAC-Movies</p>
-       
+        <p class="copyright">Copyright © <span class="anio"></span>  - CAC-Movies</p>
+      
         <ul class="footer__links">
             <li><a href="">Terminos y condiciones</a></li>
             <li><a href="">Preguntas frecuentes</a></li>
@@ -215,9 +219,11 @@
             <li><a href="">Administración películas</a></li>
         </ul>
 
-        <p class="about">Disfruta de una amplia selección de películas y series en español latino para ver en línea ¡y lo mejor de todo, de forma gratuita! Accede a una experiencia de visualización aún más conveniente con CAC-Movies.</p>
+        <p class="about">Explora una extensa selección de películas en español latino con CAC-Movies. Disfruta de toda la información que necesitas sobre tus títulos favoritos.</p>
 
     </footer>
+
+
 
     <!-- Modal Registro -->
     <div class="modal fade " id="staticBackdropRegistro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -231,7 +237,7 @@
                     <form action="server/checkRegistro.html" method="post">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control bg-dark" name="nombre" id="fnombre" required>
-                            <label for="fnombre" >Nombre</label>
+                            <label for="fnombre">Nombre</label>
                         </div>
                           
                         <div class="form-floating mb-3">
@@ -265,25 +271,27 @@
 
     <!-- Modal Login -->
     <div class="modal fade" id="staticBackdropLogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog bg-dark">
+        <div class="modal-dialog ">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Iniciá Sesión</h1>
+                <div class="modal-header bg-dark">
+                    <h1 class="modal-title fs-5 bg-dark" id="staticBackdropLabel">Iniciá Sesión</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form action="server/checkLogin.html" method="post">
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" name="email" id="femail" required>
+                <div class="modal-body bg-dark">
+                    <form id="login" action="server/checkLogin.html" method="post">
+                        <div class="form-floating mb-3 ">
+                            <input type="email" class="form-control" name="email" id="login-email" >
                             <label for="femail">Email</label>
+                            <p id="errorUser"></p>
                         </div>                        
 
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" name="password" id="fpass" required >
+                            <input type="password" class="form-control" name="password" id="login-pass"  >
                             <label for="fpass">Contraseña</label>
+                            <p id="errorPass"></p>
                         </div>    
                         <div class="modal-footer">
-                            <input type="submit" value="Iniciar Sesión" class="btn btn-primary">
+                            <input type="submit" value="Iniciar Sesión" class="btn btn-warning">
                         </div>
                     </form>
                 </div>
@@ -294,6 +302,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <script src="/js/js.js"></script>
+        <script src="/js/pelis.js"></script>
 </body>
 
 </html>

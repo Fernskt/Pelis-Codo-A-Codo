@@ -63,12 +63,15 @@
           </nav> <!-- NavBarBootstrap-->
 
     </header>
-
+    <div class="spinner-container">
+        <div class="spinner"></div>
+    </div>
         <section class="detail-movie">
+            
             <div class="contenedor-peli">
 
                 <div class="peli-aside">
-                   <a href="https://www.youtube.com/watch?v=kg3Q63gzF6I&ab_channel=UniversalPicturesM%C3%A9xico" target="_blank"> <img class="peli-img" src="img/kfp4.jpg" alt="pelicula"></a>
+                   <a href="https://www.youtube.com/watch?v=kg3Q63gzF6I&ab_channel=UniversalPicturesM%C3%A9xico" target="_blank"> <img class="peli-img" src="" alt="pelicula" title="Ver Trailer"></a>
                     <a href="" class="d-flex align-items-center btn btn-outline-warning btn-peli" data-bs-toggle="modal"
                         data-bs-target="#staticBackdropLogin">
                         <p><span class="mas">+</span>Agregar a...</p>
@@ -76,15 +79,17 @@
                 </div><!--Fin Aside-->
                
                 <div class="detalles">
-                    <h1>Kung Fu Panda 4</h1>
-                    <img class="peli-img-mobile" src="img/kfp4.jpg" alt="pelicula">
+                    <h1 id="titulo"></h1>
+                    <img class="peli-img-mobile" src="" alt="pelicula">
                     
-                    <p class="enfasis">Kung Fu Panda 4</p>
-                    <p>⭐8.4  1h 34m  <span class="anio"><strong>2024</strong></span></p>
-                    <p class="descripcion"><strong>Kung Fu Panda 4: </strong> Po se prepara para ser el líder espiritual del Valle de la Paz, buscando un sucesor como Guerrero Dragón. Mientras entrena a un nuevo practicante de kung fu, enfrenta al villano llamado "el Camaleón", que evoca villanos del pasado, desafiando todo lo que Po y sus amigos han aprendido.</p>
-                    <p><span class="enfasis">Género: </span> Animación,  Acción,  Familia,  Comedia,  Fantasía</p>
-                    <p><span class="enfasis">País: </span>Estados Unidos</p>
-                    <p><span class="enfasis">Director: </span>Mike Mitchell</p>
+                    <p id="subtitulo" class="enfasis">Cargando...</p>
+                    <p id="vote_avg"> <span id="fecha" class="anio"></span></p>
+                    <p id="descripcion" class="descripcion"></p>
+                    
+                    <div id="info">
+                        
+                    </div>
+                    
                     
                 </div>
             </div><!--Fin Peli-->
@@ -92,10 +97,10 @@
         </section>
 
         <section class="pelicula">
-            <h1>Ver Película</h1>
+            <h1>Ver Trailer</h1>
             <div class="pelicula-video">
                
-                <iframe class="iframe" width="2032" height="879" src="https://player.cuevana.biz/player.php?h=rxPRsRSX4IlkyS1F21W5j9ni4whEhLxyga5RF9BK0wi6PsPjH3K0pGXB06Da9WJZ" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe id="iframe" class="iframe" width="2032" height="879" src="" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 
             </div>
 
@@ -243,6 +248,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <script src="/js/detail-movie.js"></script>
 </body>
 
 </html>

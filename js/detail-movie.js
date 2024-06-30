@@ -6,9 +6,19 @@ document.addEventListener("DOMContentLoaded", async function () {
   const spinnerContainer = document.querySelector('.spinner-container');
   const spinner = document.querySelector('.spinner');
 
-
-      // Mostrar el spinner antes de hacer la solicitud
-      spinnerContainer.style.display = 'flex';
+  //función para convertir de minutos a horas.
+  const duracion = (min)=>{
+    let cantHoras = Math.floor(min / 60); // Calcula el número de horas completas
+    let minutosRestantes = min % 60; // Calcula los minutos restantes
+    if (cantHoras > 0) {
+        return cantHoras + "h " + minutosRestantes + "min";
+    } else {
+        return minutosRestantes + " min";
+    }
+  };
+  
+  // Mostrar el spinner antes de hacer la solicitud
+  spinnerContainer.style.display = 'flex';
   // Función para obtener el valor de un parámetro en la URL
   const getQueryParam = (param) => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -32,9 +42,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.getElementById("titulo").textContent = movie.title;
 
     document.getElementById("subtitulo").textContent = movie.tagline;
-
+    const runtime = duracion(movie.runtime);
     document.getElementById("vote_avg").textContent = `⭐ ${movie.vote_average}`;
-    document.getElementById("duracion").textContent = `${movie.runtime} min.`;
+    document.getElementById("duracion").textContent = runtime;
 
     // document.getElementById('fecha').textContent = movie.release_date;
 
@@ -55,7 +65,6 @@ if (trailer) {
     const trailerUrl = `https://www.youtube.com/embed/${trailerKey}`;
     const iframe = document.getElementById('iframe');
     iframe.src = trailerUrl;
-    // Aquí puedes usar trailerUrl para integrar el trailer en tu página
 } else {
     console.log('No se encontró trailer para la película.');
 }
@@ -63,7 +72,7 @@ if (trailer) {
 
   if (movieId) {
     const response = await fetch(
-      `${API_URL}/movie/${movieId}?api_key=${API_KEY}&language=es-ES`
+      `${API_URL}/movie/${movieId}?api_key=${API_KEY}&language=es-MX`
     );
     const movie = await response.json();
 

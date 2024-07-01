@@ -2,26 +2,43 @@ document.addEventListener("DOMContentLoaded", function () {
     const API_URL = "https://api.themoviedb.org/3";
     const API_KEY = "f5a09a058db7dc2f36999cfad6668b60";
     const IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
+    const spinnerContainer = document.querySelector('.spinner-container');
+    
+    // Mostrar el spinner antes de hacer la solicitud
+    spinnerContainer.style.display = 'flex';
 
+    //Obtener parámetro de la URL
     const getQueryParam = (param) => {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(param);
       };
-    
+    //Guardar parametro de la URL en la variable genreID
       const genreId = getQueryParam("id");
-
+      
+    //Función para traer la lista de géneros de las pelis
       const fetchGenre = async () =>{
         const response = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}&language=es-MX`);
         const data = await response.json();
         const generos = data.genres;
         
-      displayGenres(generos);
-        
+        displayGenres(generos);//Se llama a la funcion displayGenres
+      
       }
-    fetchGenre();
+    fetchGenre();//se llama a la api
+
+    //Función para recorrer los Géneros y mostrarlos en el NavBar
       const displayGenres = (generos) =>{
-        const excludeGenres = ["Aventura", "Familia", "Fantasía","Romance","Película de TV"];
-        const filteredGeneros = generos.filter(genero => !excludeGenres.includes(genero.name));
+
+        //Se filtran algunos géneros innecesarios
+      const excludeGenres = ["Aventura", "Familia", "Fantasía","Romance","Película de TV"];
+      const filteredGeneros = generos.filter(genero => !excludeGenres.includes(genero.name));
+
+      //Se comprueba si se clickeo en Tendencias, que el título sea Tendencias
+        if(genreId == 'tendencias'){
+          document.getElementById('genreTitle').innerText = "Tendencias";
+        }
+
+        //se recorren los géneros ya filtrados y se los muestra
         filteredGeneros.forEach((genero)=>{
        
         if(genero.id == genreId){
@@ -33,13 +50,19 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('genres').innerHTML += `<li><a class="dropdown-item bg-dark" href="viewList.html?id=${genero.id}">${genero.name}</a></li>`
          
           //console.log(genero);
-         }) 
+         });
+         //Se oculta el Spinner         
+          spinnerContainer.style.display = 'none';  
       }
 
+      //Función para traer las películas
 const fetchMovies = async () => {
-   
+  let withGenres = ``;
+   if(genreId !== 'tendencias'){
+     withGenres = `&with_genres=${genreId}`
+   }
     const response = await fetch(
-      `${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=es-MX`
+      `${API_URL}/discover/movie?api_key=${API_KEY}${withGenres}&language=es-MX`
     );
     const data = await response.json();
     const movies = data.results;

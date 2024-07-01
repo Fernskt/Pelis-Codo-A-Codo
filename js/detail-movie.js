@@ -4,7 +4,26 @@ document.addEventListener("DOMContentLoaded", async function () {
   const IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
   const IMAGE_PATH_O = "https://image.tmdb.org/t/p/original";
   const spinnerContainer = document.querySelector('.spinner-container');
-  const spinner = document.querySelector('.spinner');
+  
+
+  const fetchGenre = async () =>{
+    const response = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}&language=es-MX`);
+    const data = await response.json();
+    const generos = data.genres;
+    
+  displayGenres(generos);
+    
+  }
+fetchGenre();
+  const displayGenres = (generos) =>{
+    const excludeGenres = ["Aventura", "Familia", "Fantasía","Romance","Película de TV"];
+    const filteredGeneros = generos.filter(genero => !excludeGenres.includes(genero.name));
+    filteredGeneros.forEach((genero)=>{
+    document.getElementById('genres').innerHTML += `<li><a class="dropdown-item bg-dark" href="viewList.html?id=${genero.id}">${genero.name}</a></li>`
+     
+      //console.log(genero);
+     }) 
+  }
 
   //función para convertir de minutos a horas.
   const duracion = (min)=>{
@@ -50,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     document.getElementById("descripcion").textContent = movie.overview;
 
-    document.getElementById("info").innerHTML = `<p><span class="enfasis">Género: </span> ${movie.genres.map((genr) => genr.name).join(', ')}</p>
+    document.getElementById("info").innerHTML = ` ${movie.genres.map((genr) => `<a class="btn btn-outline-warning btn-sm mb-3" href="viewList.html?id=${genr.id}">${genr.name}</a>`).join('  ')}
     <p id="pais"><span class="enfasis">País: </span>${movie.production_countries[0].name}</p><p id="director"><span class="enfasis">Compañía: </span>${movie.production_companies[0].name}</p>
     <p id="director"><span class="enfasis">Fecha de estreno: </span>${movie.release_date}</p>`;
   };

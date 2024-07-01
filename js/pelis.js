@@ -19,7 +19,7 @@ fetchGenre();
     filteredGeneros.forEach((genero)=>{
     document.getElementById('genres').innerHTML += `<li><a class="dropdown-item bg-dark" href="viewList.html?id=${genero.id}">${genero.name}</a></li>`
      
-      console.log(genero);
+      //console.log(genero);
      }) 
   }
 

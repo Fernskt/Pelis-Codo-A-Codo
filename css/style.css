@@ -263,6 +263,9 @@ a{
     align-items: center;
 }
 
+.pelicula h1 {
+    margin: 10px;
+}
 .pelicula-video{
     width: 100%;
     background-color: var(--color-primario);

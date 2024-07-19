@@ -84,6 +84,8 @@ ul{
     box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.807);
     text-align: center;
     padding: 5rem;
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
 }
 
 

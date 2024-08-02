@@ -57,6 +57,7 @@ body {
 
 .links li {
     list-style: none;
+    
 }
 
 ul{
@@ -74,7 +75,11 @@ ul{
     animation: rubberBand;
     animation-duration: 2s; 
 }
-
+.mask {
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+    z-index: -1;
+    position: relative;
+}
 #banner{
    
     background-image: url('../img/banner-bg.jpg');
@@ -84,11 +89,8 @@ ul{
     box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.807);
     text-align: center;
     padding: 5rem;
-    overflow: hidden;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+    overflow: hidden; 
 }
-
-
 
 #busqueda {
     

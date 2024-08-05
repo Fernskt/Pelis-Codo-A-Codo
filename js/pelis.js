@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const API_URL = "https://api.themoviedb.org/3";
   const API_KEY = "f5a09a058db7dc2f36999cfad6668b60";
   const IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
+  const IMAGE_PATH_O = "https://image.tmdb.org/t/p/original";
 
   const fetchGenre = async () =>{
     const response = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}&language=es-MX`);
@@ -32,12 +33,25 @@ fetchGenre();
     );
     const data = await response.json();
     const movies = data.results;
-
-    console.log(movies);
+    const randomNum = Math.floor(Math.random() * 5);
+    console.log(movies[0]);
 
     displayMovies(movies);
-    
+    displayPortada(movies[randomNum]);
   };
+
+  const displayPortada = (movie) => {
+    const banner = document.getElementById('banner');
+    banner.style.backgroundImage = `url(${IMAGE_PATH_O + movie.backdrop_path})`;
+    document.getElementById("content-title").textContent = `${movie.title}`
+    document.querySelector(".descripcion").textContent = `${movie.overview}`;
+    document.getElementById("sub-title").textContent =  `⭐ ${movie.vote_average.toFixed(1)}/10  ${movie.release_date.substring(
+                      0,
+                      4
+                    )}`;
+    document.querySelector(".btn-detail").innerHTML = `<a class="btn btn-outline-warning" href="detail-movie.html?id=${movie.id}" target="_blank">Ver Detalles</a>`
+                                                  
+  }
 
   const displayMovies = (movies) => {
     let listaPelis = document.querySelector(".grid");

@@ -17,16 +17,15 @@ body {
     background-color: var(--color-primario) !important;
 }
 .bgRojo {
-    
-    
+  
     margin: 0;
     animation: header-movement both;
     animation-timeline: scroll();
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     animation-range: 50px 100px;
-   
-   
+  
 }
 .form-control{
     background-color: #0c141c;
@@ -81,16 +80,30 @@ ul{
     position: relative;
 }
 #banner{
-   
+    display: flex;
+    align-items: center;
     background-image: url('../img/banner-bg.jpg');
     background-size: cover;
     background-position: center;
-    height: 90vh;
+    height: 100vh;
     box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.807);
-    text-align: center;
-    padding: 5rem;
+    padding: 2rem 1rem 0;
     overflow: hidden; 
 }
+.content h1{
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+.content{
+    width: 50%;
+}
+
+@media (max-width: 768px) {
+    .content{
+        width: 90%;
+    }
+}
+
 
 #busqueda {
     
@@ -110,6 +123,7 @@ a{
 }
 
 .movie-item {
+    
     border-radius: .5rem;
     max-width: 150px;
     height: 300px;
@@ -200,7 +214,7 @@ a{
 
 .detail-movie{
    
-    
+    padding-top: 5rem;
     background-repeat: no-repeat;
     background-size: cover;
     background-position:center;
@@ -303,7 +317,7 @@ a{
 @keyframes header-movement {
     from {
         padding: 10px 0;
-        background-color: rgb(2, 6, 23);
+        background-color: rgba(2, 6, 23, 0.204);
         border-bottom: 1px solid rgb(27, 23, 35);
 
     }
